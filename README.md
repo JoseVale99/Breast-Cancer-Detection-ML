@@ -12,4 +12,5 @@ Over the past decade, machine learning techniques have been widely used in intel
         pip install pandas
         pip install matplotlib
         pip install seaborn
+        pip install sklearn
 ```
