@@ -7,10 +7,35 @@ Over the past decade, machine learning techniques have been widely used in intel
 ### Importing the required Libraries
 > As the first step, let us import the libraries required for the project. If you are not having these libraries, kindly install them using the following commands.
 
+```bash
+       $ pip install numpy
+       $ pip install pandas
+       $ pip install matplotlib
+       $ pip install seaborn
+       $ pip install sklearn
 ```
-        pip install numpy
-        pip install pandas
-        pip install matplotlib
-        pip install seaborn
-        pip install sklearn
+> dependencies for flask
+```bash
+       $ pip install virtualenv
+```
+
+### Virtual Environments
+http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+Example:
+
+```
+        pip install virtualenv
+        cd my_project_folder
+        virtualenv env
+        source env/bin/activate
+        pipenv install flask
+        deactivate
+```
+
+### Start webapp:
+```bash
+        $ source env/bin/activate
+        $ python run.py
+        $ deactivate
 ```
