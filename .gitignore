@@ -2,3 +2,7 @@ data/archive.zip
 app/__pycache__/__init__.cpython-310.pyc
 Pipfile.lock
 Pipfile
+app/views/__pycache__/routes.cpython-310.pyc
+.gitignore
+__pycache__/config.cpython-310.pyc
+app/views/__pycache__/flask_pager.cpython-310.pyc
