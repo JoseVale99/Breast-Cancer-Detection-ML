@@ -1,8 +1,40 @@
 {% extends "base.html" %}
+{% import "_macros.html" as macros %}
 {% block body %}
 
   <div>
     <h1>Hello world!</h1>
 </div>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Predicción</th>
+        <th scope="col">Resultado</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+      {% for item in data %}
+      
+      <tr>
+        <th scope="row">{{ item.0}}</th>
+        <td>{{item.1}}</td>
+        {% if item.1 == 1 %}
+        <td>Maligno</td>
+        {% else %}
+        <td>Benigno</td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+  {{ macros.pagination_widget(pages, 'index') }}
 
 {% endblock %}
