@@ -1,45 +1,5 @@
 {% extends "base.html" %}
-{% import "_macros.html" as macros %}
 {% block body %}
 
-  <div>
-    <h1>Hello world!</h1>
-</div>
-
-
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#ID</th>
-        <th scope="col">Predicción</th>
-        <th scope="col">Resultado</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-     
-      {% for item in data %}
-      
-      <sp>
-        <th scope="row">{{ item.0}}</th>
-        <td>{{item.1}}</td>
-        {% if item.1 == 1 %}
-        <td>
-          <span class="badge badge-danger">Maligno</span>
-        </td>
-        
-        {% else %}
-        <td>
-          <span class="badge badge-success">Benigno</span>
-        </td>
-        {% endif %}
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
-
-  {{ macros.pagination_widget(pages, 'index') }}
-
+<h1>hello world!</h1>
 {% endblock %}
