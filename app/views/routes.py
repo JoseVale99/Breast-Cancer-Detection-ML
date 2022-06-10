@@ -12,7 +12,12 @@ from .flask_pager import Pager
 
 
 @app.route('/')
+
 def index():
+    return render_template('index.html')
+
+@app.route('/Regresionlogistic')
+def model_logistic():
     df=pd.read_csv ("data/data.csv")
     df.isna ().sum()
     df=df.drop ('Unnamed: 32',axis=1)
@@ -54,4 +59,4 @@ def index():
     limit = current_app.config['PAGE_SIZE']
     data_to_show = data[offset: offset + limit]    
 
-    return render_template('index.html', pages=pages, data=data_to_show)
+    return render_template('logistic.html', pages=pages, data=data_to_show)
