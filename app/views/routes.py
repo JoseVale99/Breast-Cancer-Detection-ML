@@ -26,10 +26,11 @@ def upload_file():
         f = request.files['file']
         f.save(f.filename)
         df  =  pd.read_csv(f.filename)
-        image = os.path.join(current_app.config['UPLOAD_FOLDER'], 'plot1.png')
+        plot_1 = os.path.join(current_app.config['UPLOAD_FOLDER'], 'plot1.png')
+        image_2 = os.path.join(current_app.config['UPLOAD_FOLDER'], 'plot2.jpg')
 
         flash('¡Archivo cargado exitosamente!','success')
-        return render_template('index.html',image=image)
+        return render_template('index.html',plot_1= plot_1, plot_2=image_2)
     
     
 
