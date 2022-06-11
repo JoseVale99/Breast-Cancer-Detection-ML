@@ -8,7 +8,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from flask import (redirect, render_template, request, current_app,flash, Blueprint, url_for)
 from .flask_pager import Pager
-from io import BytesIO
 import os
 
 
