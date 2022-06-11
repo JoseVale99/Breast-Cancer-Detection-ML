@@ -6,13 +6,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-
-from flask import Flask, render_template, request, current_app
+from flask import render_template, request, current_app
 from .flask_pager import Pager
 
 
 @app.route('/')
-
 def index():
     return render_template('index.html')
 
