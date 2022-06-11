@@ -1,5 +1,73 @@
 {% extends "base.html" %}
 {% block body %}
 
-<h1>hello world!</h1>
+
+<div class="container ">
+    <div class="row justify-content-center ">
+        <div class="col-md-12 ">
+            <div class="card">
+                <div class="card-header">COMPARACIÓN  DE MODELOS DE APRENDIZAJE
+                     AUTOMÁTICO PARA LA PREDICCIÓN DE TIPO DE CÁNCER DE MAMA (BENIGNO O MALIGNO)</div>
+                <div class="container mx-4 mt-3">
+                    <div class="row">
+                        <div class="col font-weight-bold">Estudiante:</div>
+                        <div class="col">Zarate Carreño José Valentín</div>
+                        <div class="w-100"></div>
+                        <div class="col font-weight-bold">Asignatura:</div>
+                        <div class="col">Inteligencia Artificial</div>
+                        <div class="w-100"></div>
+                        <div class="col font-weight-bold">Grupo:</div>
+                        <div class="col">9SA</div>
+                    </div>
+                </div>
+
+
+                <div class=" text-justify mx-4 mt-2 ">
+                    <div class="font-weight-bold text-success">Planteamiento del problema</div>
+                    El cáncer de mama es un cáncer muy común a nivel mundial. Para ayudar a los
+                     médicos a clasificar el tipo de cáncer ya sea benigno o maligno se han utilizado 
+                     técnicas de aprendizaje automático, para realizar esto el aprendizaje automático
+                      utiliza modelos, cada modelo tiene un porcentaje de precisión, una mayor precisión
+                       indica un mejor modelo para el aprendizaje automático.
+                </div>
+
+                <div class=" text-justify mx-4 mt-2 ">
+                    <div class="font-weight-bold text-success">Objetivo General</div>
+                    Construir un sitio web donde se representen diferentes modelos de 
+                    clasificación para la detección de tipo de  cáncer de mama(benigno y maligno).
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading text-dark">¿Cómo se utiliza la App?</h4>
+                       
+                        <div class="container">
+                            <div class="row text-dark">
+                                Solo tienes que importar el dataset de entrenamiento 
+                                con la extensión (.csv). 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <label class="col-sm-2 col-form-label mt-3 font-weight-bold">Importar archivo</label>
+                    <div class="col-md-auto mt-3">
+                        
+                        <input type="file"  id="file" name="file" accept=".csv" name="path_file" class="form-control"
+                            placeholder="Importar data de entrenamiento CSV">
+
+                    </div>
+
+                    <div class="col-md-auto mt-3 ">
+                        <button type="submit" class="btn btn-primary btn-block">Entrenar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}
