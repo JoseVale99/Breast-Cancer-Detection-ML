@@ -6,8 +6,8 @@
     <div class="row justify-content-center ">
         <div class="col-md-12 ">
             <div class="card">
-                <div class="card-header">COMPARACIÓN  DE MODELOS DE APRENDIZAJE
-                     AUTOMÁTICO PARA LA PREDICCIÓN DE TIPO DE CÁNCER DE MAMA (BENIGNO O MALIGNO)</div>
+                <div class="card-header">COMPARACIÓN DE MODELOS DE APRENDIZAJE
+                    AUTOMÁTICO PARA LA PREDICCIÓN DE TIPO DE CÁNCER DE MAMA (BENIGNO O MALIGNO)</div>
                 <div class="container mx-4 mt-3">
                     <div class="row">
                         <div class="col font-weight-bold">Estudiante:</div>
@@ -25,43 +25,99 @@
                 <div class=" text-justify mx-4 mt-2 ">
                     <div class="font-weight-bold text-success">Planteamiento del problema</div>
                     El cáncer de mama es un cáncer muy común a nivel mundial. Para ayudar a los
-                     médicos a clasificar el tipo de cáncer ya sea benigno o maligno se han utilizado 
-                     técnicas de aprendizaje automático, para realizar esto el aprendizaje automático
-                      utiliza modelos, cada modelo tiene un porcentaje de precisión, una mayor precisión
-                       indica un mejor modelo para el aprendizaje automático.
+                    médicos a clasificar el tipo de cáncer ya sea benigno o maligno se han utilizado
+                    técnicas de aprendizaje automático, para realizar esto el aprendizaje automático
+                    utiliza modelos, cada modelo tiene un porcentaje de precisión, una mayor precisión
+                    indica un mejor modelo para el aprendizaje automático.
                 </div>
 
                 <div class=" text-justify mx-4 mt-2 ">
                     <div class="font-weight-bold text-success">Objetivo General</div>
-                    Construir un sitio web donde se representen diferentes modelos de 
-                    clasificación para la detección de tipo de  cáncer de mama(benigno y maligno).
+                    Construir un sitio web donde se representen diferentes modelos de
+                    clasificación para la detección de tipo de cáncer de mama(benigno y maligno).
                 </div>
                 <div class="card-body">
                     <div class="alert alert-success" role="alert">
                         <h4 class="alert-heading text-dark">¿Cómo se utiliza la App?</h4>
-                       
+
                         <div class="container">
                             <div class="row text-dark">
-                                Solo tienes que importar el dataset de entrenamiento 
-                                con la extensión (.csv). 
+                                Solo tienes que importar el dataset de entrenamiento
+                                con la extensión (.csv).
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="row justify-content-center">
-                    <label class="col-sm-2 col-form-label mt-3 font-weight-bold">Importar archivo</label>
-                    <div class="col-md-auto mt-3">
-                        
-                        <input type="file"  id="file" name="file" accept=".csv" name="path_file" class="form-control"
-                            placeholder="Importar data de entrenamiento CSV">
-
+            
+                <div class="container">
+                     <!-- notificaciones aquí -->
+                     {% with success = get_flashed_messages(category_filter=["success"]) %}
+                     {% if success %}
+                     {% for msg in success %}
+                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                         {{ msg }}
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     {% endfor %}
+                     {% endif %}
+                     {% endwith %}
+                    <!-- notificaciones aquí -->
+                    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                    {% if errors %}
+                    {% for msg in errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ msg }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-
-                    <div class="col-md-auto mt-3 ">
-                        <button type="submit" class="btn btn-primary btn-block">Entrenar</button>
-                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
                 </div>
+
+
+                <form action="{{ url_for ('upload_file') }}" method="POST" enctype="multipart/form-data">
+                    <div class="row justify-content-center">
+                        <label class="col-sm-2 col-form-label mt-3 font-weight-bold">Importar archivo</label>
+                        <div class="col-md-auto mt-3">
+
+                            <input type="file" id="file" name="file" accept=".csv" name="path_file" class="form-control"
+                                placeholder="Importar data de entrenamiento CSV">
+
+                        </div>
+
+                        <div class="col-md-auto mt-3 ">
+                            <button type="submit" class="btn btn-primary btn-block">Entrenar</button>
+                        </div>
+                    </div>
+                    
+                </form>
+                <div class="container">
+                    <div class="card-body">
+                        <div class="alert alert-info" role="alert">
+                            <h4 class="alert-heading text-dark">Visualización de de datos</h4>
+    
+                            <div class="container">
+                                <div class="row text-dark">
+                                    <p>
+                                        El método <b>countplot()</b> en la biblioteca <b>seaborn</b> se utiliza para mostrar los recuentos de observaciones en cada categoría mediante barras, como
+                                     se muestra a continuación.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <img src="{{ image }}" class="img-fluid mx-auto d-block" width="400">
+
+                </div>
+                
+
 
             </div>
         </div>
