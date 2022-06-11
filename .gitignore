@@ -8,3 +8,4 @@ __pycache__/config.cpython-310.pyc
 app/views/__pycache__/flask_pager.cpython-310.pyc
 .vscode/settings.json
 data.csv
+app/views/__pycache__/routes.cpython-310.pyc
