@@ -23,7 +23,7 @@
 
 
                 <div class=" text-justify mx-4 mt-2 ">
-                    <div class="font-weight-bold text-success">Planteamiento del problema</div>
+                    <div class="font-weight-bold text-success h5">Planteamiento del problema</div>
                     El cáncer de mama es un cáncer muy común a nivel mundial. Para ayudar a los
                     médicos a clasificar el tipo de cáncer ya sea benigno o maligno se han utilizado
                     técnicas de aprendizaje automático, para realizar esto el aprendizaje automático
@@ -32,9 +32,20 @@
                 </div>
 
                 <div class=" text-justify mx-4 mt-2 ">
-                    <div class="font-weight-bold text-success">Objetivo General</div>
+                    <div class="font-weight-bold text-success h5">Objetivo General</div>
                     Construir un sitio web donde se representen diferentes modelos de
                     clasificación para la detección de tipo de cáncer de mama(benigno y maligno).
+                </div>
+
+                <div class=" text-justify mx-4 mt-2 ">
+                    <div class="font-weight-bold text-success h5">Alcances</div>
+                    <ul>
+                        <li> Leer un dataset para luego explorarlo en diferentes modelos</li>
+                           <li>Obtener el puntaje de precisión de cada modelo.</li>
+                            <li>Entregar la predicción para un cierto porcentaje del dataset que serán considerados los datos de prueba.</li>
+                            <li>Comparar diferentes modelos de clasificación para el aprendizaje automático (Machine Learning) para la predicción de Cáncer de mama si es benigno o maligno.
+                            </li>
+                    </ul>
                 </div>
                 <div class="card-body">
                     <div class="alert alert-success" role="alert">
@@ -42,8 +53,12 @@
 
                         <div class="container">
                             <div class="row text-dark">
-                                Solo tienes que importar el dataset de entrenamiento
-                                con la extensión (.csv).
+                                <p>
+                                    Solo tienes que importar el dataset de entrenamiento
+                                con la extensión (.csv). Posteriormente podrás navegar en la página
+                                donde encontraras los <b>modelos de aprendizaje automático (ML)</b> para la predicción
+                                de Cáncer de Mama.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +98,7 @@
 
                 <form action="{{ url_for ('upload_file') }}" method="POST" enctype="multipart/form-data">
                     <div class="row justify-content-center">
-                        <label class="col-sm-2 col-form-label mt-3 font-weight-bold">Importar archivo</label>
+                        <label class="col-sm-2 col-form-label mt-3 font-weight-bold">Importar dataset de entrenamiento</label>
                         <div class="col-md-auto mt-3">
 
                             <input type="file" id="file" name="file" accept=".csv" name="path_file" class="form-control"
@@ -97,7 +112,11 @@
                     </div>
                     
                 </form>
+                   
                 <div class="container">
+                    <div class="text-weight-bold text-center h5 mt-5">
+                        Tratamiento de datos
+                    </div>
                     <div class="card-body">
                         <div class="alert alert-info" role="alert">
                             <h4 class="alert-heading text-dark">Visualización de de datos</h4>
@@ -133,13 +152,17 @@
                     </div>
                     <img src="{{ plot_2 }}" class="img-fluid mx-auto d-block" width="400">
                 </div>
-                
+                <br> <br> <br>
 
 
             </div>
         </div>
     </div>
 </div>
+<br> <br> <br>
+
+<br> <br> <br>
+
 
 
 
