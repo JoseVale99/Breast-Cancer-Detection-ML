@@ -2,48 +2,122 @@
 {% import "_macros.html" as macros %}
 {% block body %}
 
- 
 
 
 
-  <div class="container">
-    <div class="table-responsive">
-      <table class="table table-hover table-bordered">
-        <thead>
-          <tr class="table-info">
-            <th scope="col">#ID</th>
-            <th scope="col">Predicción</th>
-            <th scope="col">Resultado</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-         
-          {% for item in data %}
+<div class="container">
+  <div class="row justify-content-center ">
+    <div class="col-md-12 ">
+      <div class="card">
+        <div class="card-header">MODELO REGRESIÓN LOGÍSTICA</div>
+        <div class=" text-justify mx-4 mt-2 ">
+          <div class="font-weight-bold text-success h5">¿Qué es la regresión logística?</div>
+          Este tipo de modelo estadístico (también conocido como modelo logit ) se usa a menudo para la clasificación y
+          el análisis predictivo. La regresión logística estima la probabilidad de que ocurra un evento, como votar o no
+          votar, en función de un conjunto de datos determinado de variables independientes. Dado que el resultado es
+          una probabilidad, la variable dependiente está limitada entre 0 y 1. En la regresión logística, se aplica una
+          transformación logit a las probabilidades, es decir, la probabilidad de éxito dividida por la probabilidad de
+          fracaso. Esto también se conoce comúnmente como probabilidades logarítmicas, o el logaritmo natural de las
+          probabilidades, y esta función logística se representa mediante las siguientes fórmulas:
+
+          <div class="card-body">
+            <div class="alert alert-success" role="alert">
+              <div class="container">
+                <div class="row text-dark">
+                  <p>
+                  <ul>
+                    <li> Logit(pi) = 1/(1+ exp(-pi))</li>
+                    <li>ln (pi / (1-pi)) = Beta_0 + Beta_1 * X_1 +… + B_k * K_k</li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="container">
+          <div class="card-body">
+            <div class="alert alert-primary" role="alert">
+              <div class="container">
+                <h4>Predicción de salida con los datos de prueba</h4>
+                <p>
+                  La regresión logística es un algoritmo de clasificación de aprendizaje automático que se utiliza para
+                  predecir la probabilidad de una variable dependiente categórica. En la regresión logística, la
+                  variable dependiente es una variable binaria que contiene datos codificados como 1 o 0.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="container-fluid mt-4 ">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr class="table-info">
+                  <th scope="col">#ID</th>
+                  <th scope="col">Predicción</th>
+                  <th scope="col">Resultado</th>
+
+                </tr>
+              </thead>
+              <tbody class="table-dark">
+
+                {% for item in data %}
+
+                <sp>
+                  <th scope="row">{{ item.0}}</th>
+                  <td>{{item.1}}</td>
+                  {% if item.1 == 1 %}
+                  <td>
+                    <span class="badge badge-pill badge-danger text-lg">Maligno</span>
+                  </td>
+
+                  {% else %}
+                  <td>
+                    <span class="badge badge-pill badge-success text-lg">Benigno</span>
+                  </td>
+                  {% endif %}
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+            {{ macros.pagination_widget(pages, 'model_logistic') }}
+
+          </div>
+          <div class="card-body">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading text-dark">Tasa de precisión</h4>
           
-          <sp>
-            <th scope="row">{{ item.0}}</th>
-            <td>{{item.1}}</td>
-            {% if item.1 == 1 %}
-            <td>
-              <span class="badge badge-danger">Maligno</span>
-            </td>
-            
-            {% else %}
-            <td>
-              <span class="badge badge-success">Benigno</span>
-            </td>
-            {% endif %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      {{ macros.pagination_widget(pages, 'model_logistic') }}
-
+                <div class="container">
+                    <div class="row text-dark">
+                        <p>
+                          Podemos usar la función <b>precision_score()</b> proporcionada por Scikit-Learn para determinar la tasa de precisión de nuestro
+                          modelo con regresión logística.
+                        </p>
+                        <br>
+                        <p>
+                          Puntuación de precisión de la regresión logística: <b>{{ pred }} %</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          
+          </div>
+        </div>
+          
+      </div>
+      <br> <br>
     </div>
   </div>
+</div>
 
 
- 
+
+
+
+
+
 
 {% endblock %}
