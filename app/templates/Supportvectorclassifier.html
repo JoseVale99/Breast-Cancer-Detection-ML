@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% block body %}
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="col-md-12 ">
+            <div class="card">
+                <div class="card-header">MODELO CLASIFICADOR DE VECTORES DE SOPORTE</div>
+                <div class=" text-justify mx-4 mt-2 ">
+                    <div class="font-weight-bold text-success h5">¿Qué es el modelo SVM?</div>
+                    Un modelo SVM es básicamente una representación de diferentes clases en un hiperplano en un espacio
+                    multidimensional. SVM generará el hiperplano de manera iterativa para que el error pueda
+                    minimizarse. El objetivo de SVM es dividir los conjuntos de datos en clases para encontrar un
+                    hiperplano marginal máximo (MMH).
+
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <div class="container">
+                                <div class="row text-dark">
+                                    <p>
+                                        El objetivo principal de <b>SVM</b> es dividir los conjuntos de datos en clases
+                                        para
+                                        encontrar un hiperplano marginal máximo (MMH) y se puede hacer en los siguientes
+                                        dos pasos:
+                                    <ul>
+                                        <li> Primero, SVM generará hiperplanos iterativamente que segregan las clases de
+                                            la mejor manera.
+                                        </li>
+                                        <li>Luego, elegirá el hiperplano que separa las clases correctamente.
+                                        </li>
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="card-body">
+                        <div class="alert alert-primary" role="alert">
+                            <div class="container">
+                                <h4>Predicción de salida con los datos de prueba</h4>
+                                <p>
+                                    Ahora, implementemos nuestro modelo usando el clasificador de vector de soporte
+                                    (SVC). Como otros clasificadores, SVC toma la entrada como dos matrices: una matriz
+                                    X de forma (n_muestras, n_características) que contiene las muestras de
+                                    entrenamiento y una matriz y de etiquetas de clase (cadenas o números enteros), de
+                                    forma (n_muestras):
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container-fluid mt-4 ">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr class="table-info">
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Predicción</th>
+                                    <th scope="col">Resultado</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-dark">
+
+                                {% for item in data %}
+
+                                <sp>
+                                    <th scope="row">{{ item.0}}</th>
+                                    <td>{{item.1}}</td>
+                                    {% if item.1 == 1 %}
+                                    <td>
+                                        <span class="badge badge-pill badge-danger text-lg">Maligno</span>
+                                    </td>
+
+                                    {% else %}
+                                    <td>
+                                        <span class="badge badge-pill badge-success text-lg">Benigno</span>
+                                    </td>
+                                    {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                        {{ macros.pagination_widget(pages, 'model_logistic') }}
+
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading text-dark">Tasa de precisión</h4>
+
+                            <div class="container">
+                                <div class="row text-dark">
+                                    <p>
+                                        Usemos la función <b>precision_score()</b> proporcionada por <b>Scikit-Learn</b> para
+                                        determinar la tasa de precisión de nuestro modelo con el algoritmo clasificador
+                                        de vector de soporte.
+
+                                    </p>
+                                    <br>
+                                    <p>
+                                        Puntuación de precisión del clasificador de vector de soporte: <b>{{ pred }} %</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <br> <br>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

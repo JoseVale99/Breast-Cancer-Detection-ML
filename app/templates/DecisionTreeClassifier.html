@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% block body %}
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="col-md-12 ">
+            <div class="card">
+                <div class="card-header">MODELO CLASIFICADOR DE ARBOLES DE DECISIÓN</div>
+                <div class=" text-justify mx-4 mt-2 ">
+                    <div class="font-weight-bold text-success h5">¿Qué son los árboles de decisión?</div>
+                    Utilice modelos de árbol de decisión para desarrollar sistemas de clasificación que predicen o
+                    clasifican observaciones futuras basándose en un conjunto de reglas de decisión. Si dispone de datos
+                    divididos en clases que le interesan (por ejemplo, préstamos de alto riesgo frente a préstamos de
+                    bajo riesgo, suscriptores frente a no suscriptores, votantes frente a no votantes o tipos de
+                    bacterias), puede usar los datos para generar reglas que pueda usar para clasificar casos antiguos o
+                    recientes con la máxima precisión. Por ejemplo, podría generar un árbol que clasificara el riesgo de
+                    crédito o la intención de compra basándose en la edad y otros factores.
+
+                    Este método, a veces conocido como inducción de regla, presenta varias ventajas. Primero, el proceso
+                    de razonamiento detrás del modelo resulta claramente evidente cuando se examina el árbol. Esto
+                    contrasta con otras técnicas de modelado de caja negra, en las que la lógica interna puede resultar
+                    difícil de averiguar.
+
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <div class="container">
+                                <div class="row text-dark">
+                                    <p>
+                                        Por ejemplo, la siguiente regla proporciona un perfil de un 
+                                        grupo de vehículos que merece la pena comprar:
+                                        <br>
+                                        <b>
+                                            IF tested = 'yes' <br>
+                                            AND kilometraje = 'bajo' <br>
+                                            THEN -> 'BUY'. <br></b>
+                                         
+                                       
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="card-body">
+                        <div class="alert alert-primary" role="alert">
+                            <div class="container">
+                                <h4>Predicción de salida con los datos de prueba</h4>
+                                <p>
+                                    El clasificador del árbol de decisión toma la entrada como
+                                     dos matrices: una matriz X, dispersa o densa, de forma (n_muestras, n_características) 
+                                     que contiene las muestras de entrenamiento, y una matriz Y de valores enteros, forma 
+                                     (n_muestras), que contiene las etiquetas de clase para la capacitación muestras:
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container-fluid mt-4 ">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr class="table-info">
+                                    <th scope="col">#ID</th>
+                                    <th scope="col">Predicción</th>
+                                    <th scope="col">Resultado</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="table-dark">
+
+                                {% for item in data %}
+
+                                <sp>
+                                    <th scope="row">{{ item.0}}</th>
+                                    <td>{{item.1}}</td>
+                                    {% if item.1 == 1 %}
+                                    <td>
+                                        <span class="badge badge-pill badge-danger text-lg">Maligno</span>
+                                    </td>
+
+                                    {% else %}
+                                    <td>
+                                        <span class="badge badge-pill badge-success text-lg">Benigno</span>
+                                    </td>
+                                    {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        </table>
+                        {{ macros.pagination_widget(pages, 'model_logistic') }}
+
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading text-dark">Tasa de precisión</h4>
+
+                            <div class="container">
+                                <div class="row text-dark">
+                                    <p>
+                                        Podemos usar la función  <b>precision_score()</b>
+                                         proporcionada por <b>Scikit-Learn</b> para determinar la 
+                                         tasa de precisión de nuestro modelo con el algoritmo 
+                                         clasificador Árbol de decisión.
+
+                                    </p>
+                                    <br>
+                                    <p>
+                                        Puntuación de precisión del clasificador del árbol de decisión:
+                                         <b>{{ pred }} %</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <br> <br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
