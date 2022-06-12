@@ -5,3 +5,19 @@ body{
     
     
     }
+
+    .imagen {
+        background-color: aliceblue;
+        max-width: 100;
+        
+    }
+
+    .titulos {
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+.column {
+    color: #232526;
+}
+
