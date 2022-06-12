@@ -6,9 +6,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
-from flask import (redirect, render_template, request, current_app,flash, Blueprint, url_for)
+from flask import (redirect, render_template, request, current_app,flash)
 from .flask_pager import Pager
 import os
+from sklearn.metrics import accuracy_score
 
 
 @app.route('/')
@@ -37,7 +38,7 @@ def upload_file():
 # model 1
 @app.route('/Regresionlogistic')
 def model_logistic():
-    df=pd.read_csv ("data/data.csv")
+    df = pd.read_csv('data.csv')
 
     df=df.drop ('Unnamed: 32',axis=1)
     df ['diagnosis'].unique()
@@ -71,6 +72,8 @@ def model_logistic():
 
     offset = (page - 1) * current_app.config['PAGE_SIZE']
     limit = current_app.config['PAGE_SIZE']
-    data_to_show = data[offset: offset + limit]    
+    data_to_show = data[offset: offset + limit]  
 
-    return render_template('logistic.html', pages=pages, data=data_to_show)
+    pred = round(accuracy_score(y_test,y_pred)*100)
+
+    return render_template('logistic.html', pages=pages, pred=pred,data=data_to_show)
