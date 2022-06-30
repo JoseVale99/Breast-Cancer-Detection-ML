@@ -1,8 +1,79 @@
 {% extends "base.html" %}
-{% import "_macros.html" as macros %}
 {% block body %}
 
-
+<div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Modelo</th>
+          <th scope="col">Precision</th>
+          <th scope="col">% Datos de entrenamiento</th>
+          <th scope="col">% Datos de prueba</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-success">
+          <th class="column" scope="row">Logistic Regression</th>
+          <td>{{ precision }}</td>
+          <td>75%</td>
+          <td>25%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr>
+  <div class="titulos">
+    <h5>Tabla comparativa de los valores reales y los valores de prediccion</h5>
+  </div>
+  <table class="table table-hover table-bordered" id="example" class="display" style="width:100%">
+    <thead>
+        <tr class="table-info">
+          <th scope="col" >#ID</th>
+          <th scope="col" >Valor real</th>
+          <th scope="col"></th>
+          <th scope="col" >Predicción</th>
+          <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for item in data %}
+          <tr>
+            <th>{{ item.0}}</th>
+            {% if item.1 == 1 %}
+            <td>{{item.1}}</td>
+            <td>
+              <span class="badge badge-pill badge-danger text-lg">Maligno</span>
+            </td>
+            {% else %}
+            <td>{{item.1}}</td>
+            <td>
+              <span class="badge badge-pill badge-success text-lg">Benigno</span>
+            </td>
+            {% endif %}
+      
+            {% if item.2 == 1 %}
+            <td>{{item.2}}</td>
+            <td>
+              <span class="badge badge-pill badge-danger text-lg">Maligno</span>
+            </td>
+            {% else %}
+            <td>{{item.2}}</td>
+            <td>
+              <span class="badge badge-pill badge-success text-lg">Benigno</span>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  <hr>
+  <div class="titulos">
+    <h5>Representación de los valores del test reales y los valores que fueron predicidos usando el modelo Logistic
+      Regression</h5>
+  </div>
+  <div id='chart' class='chart' ”></div>
+  <div class="bottom-chart"></div>
+  <hr>
 
 
 <div class="container">
@@ -36,9 +107,6 @@
 
                                         <br>
 
-
-
-
                                     </p>
                                 </div>
                             </div>
@@ -63,41 +131,7 @@
 
                     </div>
                 </div>
-                <div class="container-fluid mt-4 ">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-bordered">
-                            <thead>
-                                <tr class="table-info">
-                                    <th scope="col">#ID</th>
-                                    <th scope="col">Predicción</th>
-                                    <th scope="col">Resultado</th>
 
-                                </tr>
-                            </thead>
-                            <tbody class="table-dark">
-
-                                {% for item in data %}
-
-                                <sp>
-                                    <th scope="row">{{ item.0}}</th>
-                                    <td>{{item.1}}</td>
-                                    {% if item.1 == 1 %}
-                                    <td>
-                                        <span class="badge badge-pill badge-danger text-lg">Maligno</span>
-                                    </td>
-
-                                    {% else %}
-                                    <td>
-                                        <span class="badge badge-pill badge-success text-lg">Benigno</span>
-                                    </td>
-                                    {% endif %}
-                                    </tr>
-                                    {% endfor %}
-                            </tbody>
-                        </table>
-                        {{ macros.pagination_widget(pages, 'model_logistic') }}
-
-                    </div>
                     <div class="card-body">
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading text-dark">Tasa de precisión</h4>
@@ -112,18 +146,11 @@
 
 
                                     </p>
-                                    <br>
-                                    <p>
-                                        Puntuación de precisión del clasificador de bosque aleatorio:
-
-                                        <b>{{ pred }} %</b>
-                                    </p>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                </div>
 
             </div>
             <br> <br>

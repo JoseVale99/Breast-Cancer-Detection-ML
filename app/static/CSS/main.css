@@ -17,6 +17,16 @@ body{
         text-align: center;
     }
 
+    .bottom-chart {
+        margin-bottom: 40px;
+    }
+
+    hr {
+        border: 1px solid orange;
+    }
+
+    
+
 .column {
     color: #232526;
 }

@@ -1,26 +1,12 @@
 {% extends "base.html" %}
 {% block body %}
 
-
 <div class="container ">
     <div class="row justify-content-center ">
         <div class="col-md-12 ">
             <div class="card">
                 <div class="card-header">COMPARACIÓN DE MODELOS DE APRENDIZAJE
                     AUTOMÁTICO PARA LA PREDICCIÓN DE TIPO DE CÁNCER DE MAMA (BENIGNO O MALIGNO)</div>
-                <div class="container mx-4 mt-3">
-                    <div class="row">
-                        <div class="col font-weight-bold">Estudiante:</div>
-                        <div class="col">Zarate Carreño José Valentín</div>
-                        <div class="w-100"></div>
-                        <div class="col font-weight-bold">Asignatura:</div>
-                        <div class="col">Inteligencia Artificial</div>
-                        <div class="w-100"></div>
-                        <div class="col font-weight-bold">Grupo:</div>
-                        <div class="col">9SA</div>
-                    </div>
-                </div>
-
 
                 <div class=" text-justify mx-4 mt-2 ">
                     <div class="font-weight-bold text-success h5">Planteamiento del problema</div>
@@ -124,8 +110,7 @@
                             <div class="container">
                                 <div class="row text-dark">
                                     <p>
-                                        El método <b>countplot()</b> en la biblioteca <b>seaborn</b> se utiliza para mostrar los recuentos de observaciones en cada categoría mediante barras, como
-                                     se muestra a continuación.
+                                        El método <b>countplot()</b> en la biblioteca <b>seaborn</b> se utiliza para mostrar los recuentos de observaciones en cada categoría mediante lineas.
                                     </p>
                                 </div>
                             </div>
@@ -133,23 +118,7 @@
     
                     </div>
                     <img src="{{ plot_1 }}" class="img-fluid mx-auto d-block" width="400">
-                    <div class="card-body">
-                        <div class="alert alert-info" role="alert">
-                            <h5 class="alert-heading text-dark">Mapa de color</h5>
-                            <div class="container">
-                                <div class="row text-dark">
-                                    <p>
-                                        Un mapa de calor de correlación es un mapa de calor que muestra 
-                                        una <b>matriz de correlación 2D</b> entre dos dimensiones discretas, 
-                                        utilizando celdas de colores para representar datos. Los valores
-                                         de la primera dimensión aparecen como filas de la tabla mientras 
-                                         que la segunda dimensión es una columna.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
+                    
                     <img src="{{ plot_2 }}" class="img-fluid mx-auto d-block" width="400">
                 </div>
                 <br> <br> <br>
@@ -162,8 +131,5 @@
 <br> <br> <br>
 
 <br> <br> <br>
-
-
-
 
 {% endblock %}
