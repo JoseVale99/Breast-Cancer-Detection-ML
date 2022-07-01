@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
 
-<div>
+<div class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -71,8 +71,10 @@
   <h5>Representación de los valores del test reales y los valores que fueron predicidos usando el modelo Logistic
     Regression</h5>
 </div>
-<div id='chart' class='chart' ”></div>
+<div class="table-responsive">
+  <div  class="chart" id='chart'></div>
 <div class="bottom-chart"></div>
+</div>
 <hr>
 <div class="container">
   <div class="row justify-content-center ">
